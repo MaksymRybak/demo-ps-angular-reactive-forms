@@ -23,8 +23,25 @@ export class CustomerComponent implements OnInit {
     });
   }
 
+  populateTestData() {
+    this.customerForm.setValue({
+      firstName: 'Maksym',
+      lastName: 'Rybak',
+      email: 'maksym.rybak@gmail.com',
+      sendCatalog: true
+    });
+  }
+
+  patchTestData() {
+    this.customerForm.patchValue({
+      firstName: 'Inga',
+      lastName: 'Rybak',
+    });
+  }
+
   save() {
     console.log(this.customerForm);
     console.log('Saved: ' + JSON.stringify(this.customerForm.value));
   }
+
 }
