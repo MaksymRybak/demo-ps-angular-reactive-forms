@@ -73,7 +73,13 @@
               type="email"
               placeholder="Email (required)"
               formControlName="email"
-              [ngClass]="{ 'is-invalid': emailMessage }"
+              [ngClass]="{
+                'is-invalid':
+                  customerForm.get('emailGroup').errors ||
+                  ((customerForm.get('emailGroup.email').touched ||
+                    customerForm.get('emailGroup.email').dirty) &&
+                    !customerForm.get('emailGroup.email').valid)
+              }"
             />
             <span class="invalid-feedback">
               {{ emailMessage }}
