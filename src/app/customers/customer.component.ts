@@ -35,7 +35,12 @@ function ratingRange(min: number, max: number): ValidatorFn {
 export class CustomerComponent implements OnInit {
   customerForm: FormGroup;
   customer = new Customer();
-  emailMessage: string;
+  emailMessage: string; // validation msg to display to user
+
+  private validationMessages = {  // all possible validation messages
+    required: 'Please enter your email address.',
+    email: 'Please enter a valid email address.'
+  };
 
   constructor(private fb: FormBuilder) { }
 
