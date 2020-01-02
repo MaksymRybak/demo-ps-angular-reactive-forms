@@ -74,11 +74,7 @@
               placeholder="Email (required)"
               formControlName="email"
               [ngClass]="{
-                'is-invalid':
-                  customerForm.get('emailGroup').errors ||
-                  ((customerForm.get('emailGroup.email').touched ||
-                    customerForm.get('emailGroup.email').dirty) &&
-                    !customerForm.get('emailGroup.email').valid)
+                'is-invalid': emailMessage
               }"
             />
             <span class="invalid-feedback">
