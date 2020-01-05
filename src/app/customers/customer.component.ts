@@ -14,7 +14,7 @@ function emailMatcher(c: AbstractControl): { [key: string]: boolean } | null {
   }
 
   if (email.value !== confirmEmail.value) {
-    return { 'match': true };
+    return { match: true };
   }
 
   return null;
@@ -23,7 +23,7 @@ function emailMatcher(c: AbstractControl): { [key: string]: boolean } | null {
 function ratingRange(min: number, max: number): ValidatorFn {
   return (c: AbstractControl): { [key: string]: boolean } | null => {
     if (c.value !== null && (isNaN(c.value) || c.value < min || c.value > max)) {
-      return { 'range': true };
+      return { range: true };
     }
     return null;
   };
@@ -58,6 +58,12 @@ export class CustomerComponent implements OnInit {
       notification: 'email',
       rating: [ null, ratingRange(1, 5)],
       sendCatalog: true,
+      addressType: 'home',
+      street1: '',
+      street2: '',
+      city: '',
+      state: '',
+      zipe: ''
     });
 
     this.customerForm.get('notification').valueChanges.subscribe(
